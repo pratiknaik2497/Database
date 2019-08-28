@@ -1,0 +1,84 @@
+********SAMPLE TABLE******
+
+
+ CREATE TABLE CompanyInfo( Id int primary key,Full_Name varchar(20),Designation varchar(20),Salary int,Performance varchar(20));
+
+insert into companyinfo values (1536,'Pratik Naik','Java Dev','10000','Good');
+insert into companyinfo values (1537,'Pranay Pangerkar','Pranay MLDev','16000','Good');
+insert into companyinfo values (1538,'Ronit Patil','DataBase','20000','Good');
+insert into companyinfo values (1539,'James Miller','AI','50000','Good');
+insert into companyinfo values (1540,'Michele Grove','Support Manager','70000','Better');
+insert into companyinfo values (1541,'Dan Yeap','Support Head','50000','Good');
+insert into companyinfo values (1542,'Sajid Khan','Support','10000','Ok');
+insert into companyinfo values (1543,'Naveen Deshmukh','Support','8000','Need Improvement');
+
+
+_____________________________________
+
+
+** ENUM and SETS**
+
+
+CREATE TABLE DataTypes
+(
+	Id int Auto_increment PRIMARY KEY,
+	Membership ENUM('SILVER','GOLD','PREMIUM'),
+	Hobbies SET('swimming','sking','cricket','football')
+);
+
+INSERT INTO DataTypes VALUES (156,'SILVER',('swimming,sking'));
+
+________________________________________________
+
+**ORDER BY**
+
+SELECT* FROM CompanyInfo
+	ORDER BY Full_Name ;
+	
+________________________________________________
+	
+	
+**AS Clause**
+
+SELECT Salary AS Sal
+FROM CompanyInfo
+ORDER BY 2 Sal DESC;
+
+________________________________________________
+**Add Remove CONSTRAINT**
+
+ALTER TABLE CompanyInfo	
+	ADD CONSTRAINT CompanyInfo_Full_Name_UQ
+	UNIQUE(Full_Name);
+	
+ALTER TABLE CompanyInfo
+	DROP INDEX CompanyInfo_Full_Name_UQ;
+
+________________________________________________
+** Pattern Matching**
+
+SELECT Full_Name
+ FROM CompanyInfo
+ WHERE Full_Name LIKE 'p_____';
+ 
+ //WHERE Full_Name LIKE '%ra%';
+ //WHERE Full_Name LIKE '%ra';
+ //WHERE Full_Name LIKE 'ra%';
+ 
+________________________________________________
+
+
+
+*** CREATE Book,Member,Book_Tran ***
+
+CREATE TABLE Book
+(
+BookId int primary key,
+BookName varchar(20)
+);
+
+CREATE TABLE Member
+(
+MemberId int primary key,
+MemberName varchar(20)
+);
